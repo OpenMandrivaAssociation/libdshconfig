@@ -1,6 +1,6 @@
 %define	name	libdshconfig
 %define	version	0.20.11
-%define	release	1mdk
+%define	release	 %mkrel 1
 %define	major	0
 %define	lib_name	%mklibname %name %{major}
 
