@@ -13,6 +13,7 @@ Source0:	%{name}-%{version}.tar.bz2
 License:	GPL
 Group:		Development/Other
 Url:		http://www.netfort.gr.jp/~dancer/software/downloads/#libdshconfig
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %package -n	%{name}-devel
 Summary:	Library for parsing dsh-style configuration files devel
