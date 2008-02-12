@@ -1,29 +1,40 @@
 %define	name	libdshconfig
-%define	version	0.20.11
+%define shortname dshconfig
+%define	version	0.20.13
 %define	release	 %mkrel 1
-%define	major	0
-%define	lib_name	%mklibname %name %{major}
+%define	major	1
+%define	libname	%mklibname %shortname %{major}
+%define develname %mklibname %shortname -d
 
 
 Summary:	Library for parsing dsh-style configuration files
 Name:		%{name}
 Version:	%{version}
 Release:	%{release}
-Source0:	%{name}-%{version}.tar.bz2
+Source0:	%{name}-%{version}.tar.gz
 License:	GPL
 Group:		Development/Other
 Url:		http://www.netfort.gr.jp/~dancer/software/downloads/#libdshconfig
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
-%package -n	%{name}-devel
+%package -n	%libname
+Summary:	Library for parsing dsh-style configuration files
+Group:		Development/Other
+
+%package -n	%develname
 Summary:	Library for parsing dsh-style configuration files devel
 Group:		Development/Other
+Requires:	%{libname} = %{version}-%{release}
 
 %description
 Library for parsing dsh-style configuration files. Required by dsh and 
 other applications.
 
-%description -n	%{name}-devel
+%description -n %libname
+Library for parsing dsh-style configuration files. Required by dsh and 
+other applications.
+
+%description -n	%develname
 Library for parsing dsh-style configuration files. Required by dsh and 
 other applications. Devel rpm.
 
@@ -41,19 +52,19 @@ rm -rf $RPM_BUILD_ROOT
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post -p /sbin/ldconfig
+%post -n %libname -p /sbin/ldconfig
 
-%postun -p /sbin/ldconfig
+%postun -n %libname -p /sbin/ldconfig
 
-%files
+%files -n %libname
 %defattr(-,root,root)
 %doc AUTHORS INSTALL COPYING NEWS README ChangeLog tests/*
-%{_libdir}/libdshconfig.so
-%{_libdir}/libdshconfig.so.1
-%{_libdir}/libdshconfig.so.1.0.0
+%{_libdir}/libdshconfig.so.%{major}
+%{_libdir}/libdshconfig.so.%{major}.*
 
-%files -n %{name}-devel
+%files -n %develname
 %defattr(-,root,root)
+%{_libdir}/libdshconfig.so
 %{_libdir}/libdshconfig.a
 %{_libdir}/libdshconfig.la
 %{_includedir}/libdshconfig.h
