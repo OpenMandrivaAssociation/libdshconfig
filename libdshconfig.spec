@@ -1,7 +1,7 @@
 %define	name	libdshconfig
 %define shortname dshconfig
 %define	version	0.20.13
-%define	release	 %mkrel 1
+%define	release	 %mkrel 2
 %define	major	1
 %define	libname	%mklibname %shortname %{major}
 %define develname %mklibname %shortname -d
@@ -25,6 +25,7 @@ Group:		Development/Other
 Summary:	Library for parsing dsh-style configuration files devel
 Group:		Development/Other
 Requires:	%{libname} = %{version}-%{release}
+Provides:	%{name}-devel = %{version}-%{release}
 
 %description
 Library for parsing dsh-style configuration files. Required by dsh and 
