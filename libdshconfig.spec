@@ -1,7 +1,7 @@
 %define	name	libdshconfig
 %define shortname dshconfig
 %define	version	0.20.13
-%define	release	 %mkrel 2
+%define	release	 %mkrel 4
 %define	major	1
 %define	libname	%mklibname %shortname %{major}
 %define develname %mklibname %shortname -d
