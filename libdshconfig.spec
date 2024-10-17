@@ -14,7 +14,7 @@ Release:	%{release}
 Source0:	%{name}-%{version}.tar.gz
 License:	GPL
 Group:		Development/Other
-Url:		http://www.netfort.gr.jp/~dancer/software/downloads/#libdshconfig
+Url:		https://www.netfort.gr.jp/~dancer/software/downloads/#libdshconfig
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %package -n	%libname
